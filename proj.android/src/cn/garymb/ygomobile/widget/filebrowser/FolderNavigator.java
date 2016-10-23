@@ -154,6 +154,7 @@ public class FolderNavigator extends FrameLayout implements OnItemClickListener,
 	public void onDirItemClick(String path) {
 		// TODO Auto-generated method stub
 		int index = path.lastIndexOf('/');
+		if(mItemList.size() > 1){
 		Map<String, Object> previousItem = mItemList.getLast();
 		swithToHeadIcon(previousItem, R.drawable.ic_dir_divider);
 		Map<String, Object> newItem = new HashMap<String, Object>();
@@ -166,6 +167,7 @@ public class FolderNavigator extends FrameLayout implements OnItemClickListener,
 		mListener.onItemChange(mCurrentDir);
 		mAdapter.notifyDataSetChanged();
 		mListView.setSelectionFromLeft(lastPosition, 0);
+		}
 	}
 
 	/*
@@ -178,6 +180,7 @@ public class FolderNavigator extends FrameLayout implements OnItemClickListener,
 	@Override
 	public void toParentDir(String path) {
 		// TODO Auto-generated method stub
+		if(mItemList.size() > 1){
 		mItemList.removeLast();
 		Map<String, Object> previousItem = mItemList.getLast();
 		swithToHeadIcon(previousItem, R.drawable.ic_dir_divider);
@@ -186,6 +189,7 @@ public class FolderNavigator extends FrameLayout implements OnItemClickListener,
 		mListener.onItemChange(mCurrentDir);
 		mAdapter.notifyDataSetChanged();
 		mListView.setSelectionFromLeft(lastIndex, 0);
+		}
 	}
 
 	/**
