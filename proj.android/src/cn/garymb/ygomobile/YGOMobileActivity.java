@@ -98,14 +98,14 @@ public class YGOMobileActivity extends NativeActivity implements
 			}
 			case MSG_ID_TOGGLE_OVERLAY: {
 				boolean isShow = msg.arg1 == 1;
-				if (isShow) {
-					mOverlayView.showAtScreen(0, 0);
-					mChainOverlayView.showAtScreen(sChainControlXPostion,
-							sChainControlYPostion);
-				} else {
-					mOverlayView.removeFromScreen();
-					mChainOverlayView.removeFromScreen();
-				}
+//				if (isShow) {
+//					mOverlayView.showAtScreen(0, 0);
+//					mChainOverlayView.showAtScreen(sChainControlXPostion,
+//							sChainControlYPostion);
+//				} else {
+//					mOverlayView.removeFromScreen();
+//					mChainOverlayView.removeFromScreen();
+//				}
 			}
 			default:
 				break;
@@ -194,11 +194,11 @@ public class YGOMobileActivity extends NativeActivity implements
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		if (mOverlayShowRequest) {
-			mOverlayView.showAtScreen(0, 0);
-			mChainOverlayView.showAtScreen(sChainControlXPostion,
-					sChainControlYPostion);
-		}
+//		if (mOverlayShowRequest) {
+//			mOverlayView.showAtScreen(0, 0);
+//			mChainOverlayView.showAtScreen(sChainControlXPostion,
+//					sChainControlYPostion);
+//deleted after 1033.b		}
 	}
 
 	@Override
