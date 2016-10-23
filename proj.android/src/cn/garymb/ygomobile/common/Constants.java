@@ -41,11 +41,11 @@ public interface Constants {
 	public static final int MODE_IGNORE_CHAIN_OPTION = 2;
 	public static final int MODE_REACT_CHAIN_OPTION = 3;
 	
-	public static final String SYSTEM_FONT_DIR = "/system/fonts/";
+	public static final String SYSTEM_FONT_DIR = "/mnt/sdcard/ygocore/fonts/";
 	public static final String FONT_DIRECTORY = "/fonts/";
-	public static final String DEFAULT_FONT_NAME = "DroidSansFallback.ttf";
+	public static final String DEFAULT_FONT_NAME = "ygo.ttf";
 	public static final String CARD_IMAGE_DIRECTORY = "/pics/";
-	public static final String THUMBNAIL_IMAGE_DIRECTORY = "/thumbnail/";
+//	public static final String THUMBNAIL_IMAGE_DIRECTORY = "/thumbnail/";
 	
 	public static final String CORE_CONFIG_PATH = "core";
 	
