@@ -1,10 +1,15 @@
 package cn.garymb.ygomobile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import android.app.AlertDialog;
 import com.avast.android.dialogs.iface.INegativeButtonDialogListener;
 import com.avast.android.dialogs.iface.IPositiveButtonDialogListener;
 import com.google.analytics.tracking.android.EasyTracker;
@@ -176,8 +181,52 @@ public class MainActivity extends AppCompatActivity  implements
 		agent.sync();
 		agent.openFeedbackPush();
 		checkResourceDownload();
+		outFonts();
 	}
 
+				/**
+	 * out fonts by sdcard
+	 * **/
+	void outFonts(){
+	final String outPathFolder = "/mnt/sdcard/ygocore/fonts/";//Environment.getExternalStorageDirectory().getPath();
+	final String outPath = outPathFolder + "ygo.ttf";
+	final String inPath = "other/fonts/ygo.ttf";
+	File file = null;
+	if(!(file = new File(outPathFolder)).exists()){
+		file.mkdirs();
+	}
+	final AlertDialog dialog = new AlertDialog.Builder(this).create();
+	//dialog.setMessage(getString(R.string.copy_fonts_to_SD));
+	dialog.setCancelable(false);
+	dialog.show();
+	new Thread(){
+	@Override
+	public void run() {
+		try {
+		InputStream input = getAssets().open(inPath);
+		OutputStream output = new FileOutputStream(outPath);
+		byte[] buffer = new byte[2048];
+		int readLength = -1;
+		while((readLength = input.read(buffer)) != -1){
+			output.write(buffer, 0, readLength);
+		}
+		input.close();
+		output.close();
+		} catch (final Exception e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mHandler.post(new Runnable() {
+					
+		@Override
+		public void run() {
+		// TODO Auto-generated method stub
+			dialog.dismiss();
+		}
+		});
+	};
+	}.start();
+	}
 	private void checkResourceDownload() {
 		ResCheckTask task = new ResCheckTask(this, getSupportFragmentManager());
 		task.setResCheckListener(this);
