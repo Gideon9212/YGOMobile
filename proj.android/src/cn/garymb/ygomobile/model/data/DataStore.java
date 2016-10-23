@@ -28,22 +28,22 @@ public class DataStore {
 	public static final int MODIFIABLE_SERVER_CHECKMATE_SERVER = 0x1001;
 	public static final int USER_DEFINE_SERVER_INFO_START = 0x1002;
 
-	private static final String DEFAULT_USER_NAME = "player";
-	private static final String DEFAULT_CHECKMATE_SERVER_NAME = "checkmate";
-	private static final String DEFAULT_CHECKMATE_SERVER_ADDR = "173.224.211.158";
-	private static final int DEFAULT_CHECKMATE_SERVER_PORT = 21001;
+	private static final String DEFAULT_USER_NAME = "YGOMobile User";
+	private static final String DEFAULT_CHECKMATE_SERVER_NAME = "C萌约战";
+	private static final String DEFAULT_CHECKMATE_SERVER_ADDR = "120.24.169.252";
+	private static final int DEFAULT_CHECKMATE_SERVER_PORT = 233;
 
-	private static final String EXTERNAL_SERVER_1_NAME = "external_1";
-	private static final String EXTERNAL_SERVER_1_ADDR = "122.0.65.73";
+	private static final String EXTERNAL_SERVER_1_NAME = "YGOPro233正式卡服";
+	private static final String EXTERNAL_SERVER_1_ADDR = "118.178.111.167";
 	private static final int EXTERNAL_SERVER_1_PORT = 233;
 
-	private static final String EXTERNAL_SERVER_2_NAME = "external_2(with AI)";
-	private static final String EXTERNAL_SERVER_2_ADDR = "117.21.174.109";
-	private static final int EXTERNAL_SERVER_2_PORT = 8910;
-
-	private static final String MYCARD_PRIVATE_SERVER_NAME = "紫毛の幻想乡";
-	private static final String MYCARD_PRIVATE_SERVER_ADDR = "122.0.65.73";
-	private static final int MYCARD_PRIVATE_SERVER_PORT = 1998;
+	private static final String EXTERNAL_SERVER_2_NAME = "YGOPro233人机练习";
+	private static final String EXTERNAL_SERVER_2_ADDR = "118.178.111.167";
+	private static final int EXTERNAL_SERVER_2_PORT = 9999;
+	
+	private static final String MYCARD_PRIVATE_SERVER_NAME = "欢迎加群88947324";
+	private static final String MYCARD_PRIVATE_SERVER_ADDR = "118.178.111.167";
+	private static final int MYCARD_PRIVATE_SERVER_PORT = 233;
 
 	private static final String TAG = "DataStore";
 
