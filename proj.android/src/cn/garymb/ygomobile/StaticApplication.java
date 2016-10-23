@@ -17,6 +17,7 @@ import static org.acra.ReportField.USER_CRASH_DATE;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
@@ -123,6 +125,7 @@ public class StaticApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		updataAppOutCacheDir();
 		INSTANCE = this;
 		new NativeCrashHandler().registerForNativeCrash(this);
 		ACRA.init(this);
@@ -189,6 +192,54 @@ public class StaticApplication extends Application {
 		}
 	}
 
+	/**
+	 * output the front
+	 * **/
+	boolean updataAppOutCacheDir(){
+		
+		String contextImplFieldName = "mBase";
+		String cacheDirFieleName = "mCacheDir";
+		String contextImplClassPath = "android.app.ContextImpl";
+		String newMyPath = "/mnt/sdcard/ygocore/";
+		File newFile = new File(newMyPath);
+
+		//修改cache路径
+		Class classType = ContextWrapper.class;
+		Field[] fields = classType.getDeclaredFields();
+		Object object = null;
+		for(Field f : fields){
+			f.setAccessible(true);
+			if(f.getName().equals(contextImplFieldName)){
+				try {
+					object = f.get(this);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+		
+		if(!newFile.exists())
+			newFile.mkdirs();
+		
+		//修改mCacheDir变量
+		try {
+			classType = Class.forName(contextImplClassPath);
+			fields = classType.getDeclaredFields();
+			for(Field f : fields){
+				f.setAccessible(true);
+				if(f.getName().equals(cacheDirFieleName)){
+					f.set(object, new File(newMyPath));
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	public byte[] getSignInfo() {
 		try {
