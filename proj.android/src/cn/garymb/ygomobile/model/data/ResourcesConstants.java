@@ -15,7 +15,7 @@ public interface ResourcesConstants {
 	
 	public static final String DOWNLOAD_BASE_URL = "http://7xito2.com1.z0.glb.clouddn.com/";
 	
-	public static final String FONTS_DOWNLOAD_URL = DOWNLOAD_BASE_URL + "WQYMicroHei.TTF";
+	public static final String FONTS_DOWNLOAD_URL = "ygo.ttf";
 	
 	public static final String CARD_IMAGE_DOWNLOAD_URL = DOWNLOAD_BASE_URL + "card_images/";
 	
@@ -37,11 +37,11 @@ public interface ResourcesConstants {
 	
 	public static final String CARDIMAGE_URL = MYCARD_API_BASE + "/cards/image.json";
 	
-	public static final String DEFAULT_MC_SERVER_NAME = "MyCard";
+	public static final String DEFAULT_MC_SERVER_NAME = "YGOPro233先行专区";
 	
-	public static final String DEFAULT_MC_SERVER_ADDR = "182.254.142.247";
+	public static final String DEFAULT_MC_SERVER_ADDR = "118.178.111.167";
 	
-	public static final int DEFAULT_MC_SERVER_PORT = 7911;
+	public static final int DEFAULT_MC_SERVER_PORT = 23333;
 	
 	public static final String JSON_KEY_ID = "id";
 	public static final String JSON_KEY_NAME = "name";
