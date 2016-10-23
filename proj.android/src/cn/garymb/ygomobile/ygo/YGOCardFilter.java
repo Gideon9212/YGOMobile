@@ -151,7 +151,8 @@ public class YGOCardFilter implements ICardFilter {
 			int size = mLevelList.size();
 			sb.append("(");
 			for (int i = 0; i < size; i++) {
-				sb.append("(").append(YGOCards.Datas.LEVEL).append("=").append(mLevelList.get(i) + 1).append(") OR "); 
+				int lv = mLevelList.get(i) + 1;
+				sb.append("(").append(YGOCards.Datas.LEVEL).append("&255").append("=").append(lv).append(") OR "); 
 			}
 			sb.delete(sb.length() - 4, sb.length());
 			sb.append(") AND ");
