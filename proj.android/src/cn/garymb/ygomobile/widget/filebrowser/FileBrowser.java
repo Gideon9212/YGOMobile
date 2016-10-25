@@ -137,9 +137,9 @@ public class FileBrowser extends ListView implements
 
 		for (File file : files) {
 			if (file.canRead()) {
-				if (display == DISPLAY_ALL) {
+				if (file.isFile() && file.getName().endsWith(".cdb")) {
 					fileList.add(file);
-				} else if (display == DISPLAY_FILE && file.isFile()) {
+				} else if (file.isDirectory()) {
 					fileList.add(file);
 				} else if (display == DISPLAY_FOLDER && file.isDirectory()) {
 					fileList.add(file);
